@@ -25,10 +25,11 @@ SELECT * FROM "Employees";
 
 
 -- Query the managers of each department as well as the department and manager information
-SELECT e.first_name, e.last_name, d.emp_no,d.dept_no,
+SELECT d.dept_no,
 (SELECT "Departments".dept_name
  	FROM "Departments"
- 	WHERE "Departments".dept_no = d.dept_no)
+ 	WHERE "Departments".dept_no = d.dept_no),
+	d.emp_no,e.last_name, e.first_name
 FROM "Dept_Manager" d
 JOIN "Employees" e 
 ON d.emp_no = e.emp_no;
@@ -40,12 +41,12 @@ SELECT * FROM "Employees";
 SELECT * FROM "Departments";
 
 -- Query the employees information as well as department they work for 
-SELECT e.emp_no, e.last_name, e.first_name, de.dept_no, d.dept_name
+SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM "Employees" e
 Join "Dept_Emp" de
 ON e.emp_no = de.emp_no
 JOIN "Departments" d
-ON de.dept_no = d.dept_no
+ON de.dept_no = d.dept_no;
 
 -- QUESTION 5
 

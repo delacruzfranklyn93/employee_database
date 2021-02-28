@@ -66,6 +66,8 @@ CREATE TABLE "Titles" (
 -- Check to see if the CSV was correctly imported
 SELECT * FROM "Titles"
 
+--Alter the tables by adding constraints to create the foreign keys
+
 ALTER TABLE "Dept_Emp" ADD CONSTRAINT "fk_Dept_Emp_dept_no" FOREIGN KEY("dept_no")
 REFERENCES "Departments" ("dept_no");
 
